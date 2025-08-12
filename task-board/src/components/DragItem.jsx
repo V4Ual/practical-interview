@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-const DragItem = ({ name, id }) => {
+const DragItem = ({ name, id, description }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "item",
     item: { name, id },
@@ -23,7 +23,8 @@ const DragItem = ({ name, id }) => {
         backgroundColor: "lightblue",
       }}
     >
-      {name}
+      <h1 className="bold text-2xl">{name}</h1>
+      <p>{description}</p>
     </div>
   );
 };

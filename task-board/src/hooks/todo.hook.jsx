@@ -15,14 +15,18 @@ export const todoHook = () => {
     const response = await fetchTodo();
     if (response.success) {
       setDroppedItems(response.data);
+    } else {
+      toast.error(response.message);
     }
   };
 
   const deleteTodo = async (id) => {
     const response = await deleteItem(id);
-    if (response.success) {
+    if (response?.success) {
       fetchData();
       toast.success(response.message);
+    } else {
+      toast.error(response.message);
     }
   };
 
@@ -31,6 +35,8 @@ export const todoHook = () => {
     if (response.success) {
       fetchData();
       toast.success(response.message);
+    } else {
+      toast.error(response.message);
     }
   };
 
@@ -40,10 +46,13 @@ export const todoHook = () => {
       fetchData();
       toast.success(response.message);
       setTodoData({});
+    } else {
+      toast.error(response.message);
     }
   };
 
   const handleDropInProgress = (item) => {
+    console.log(item);
     setDroppedItems((prevItems) => [...prevItems, item]);
     totoUpdate({ id: item.id, type: "in-progress" });
   };
