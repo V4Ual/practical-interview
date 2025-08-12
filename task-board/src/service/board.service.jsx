@@ -6,7 +6,7 @@ export const fetchTodo = async () => {
 
     return response.data;
   } catch (error) {
-    return error.response.message;
+    return error.response.data;
   }
 };
 
@@ -16,7 +16,7 @@ export const deleteItem = async (id) => {
 
     return response.data;
   } catch (error) {
-    return error.response.message;
+    return error.response.data;
   }
 };
 
@@ -26,7 +26,7 @@ export const updateItem = async (updateObject) => {
 
     return response.data;
   } catch (error) {
-    return error.response.message;
+    return error.response.data;
   }
 };
 
@@ -36,6 +36,6 @@ export const addTodoInList = async (addObject) => {
 
     return response.data;
   } catch (error) {
-    return error.response.message;
+    return error.response.data;
   }
 };

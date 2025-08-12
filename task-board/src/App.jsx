@@ -58,18 +58,13 @@ const App = () => {
                 <h2 className="text-center bold text-2xl uppercase m-5">
                   todo
                 </h2>
-                {droppedItems &&
-                  droppedItems.map((item, index) => {
-                    return (
-                      item.status === "todo" && (
-                        <DragItem
-                          key={item.id}
-                          name={item.title}
-                          id={item.id}
-                        />
-                      )
-                    );
-                  })}
+
+                <CardBox
+                  droppedItems={droppedItems}
+                  type="todo"
+                  handleRemove={(index, item) => handleRemoveItem(index, item)}
+                  handleEditSubmit={handleEditSubmit}
+                />
               </div>
               <div className="flex-1 border-[1px] p-[10px] rounded-md border-amber-50">
                 <h2 className="text-center bold text-2xl uppercase m-5">
